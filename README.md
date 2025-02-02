@@ -44,10 +44,15 @@ npm run preview - Previsualiza la app en producción.
 
 
 ## 🚀 Tecnologías Utilizadas
+
 ⚛️ React
+
 ⚡ Vite
+
 🎨 Material UI
+
 📦 React Router 
+
 
 ## 📌 Contribuciones
 Si deseas contribuir, ¡siéntete libre de hacer un fork y un pull request! 😊
