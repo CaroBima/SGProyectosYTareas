@@ -1,16 +1,17 @@
 
 import './App.css'
-import MenuProyectos from './commons/menu/MenuProyectos'
-import ProyectoComponent from './proyectos/proyectoComponent'
+import Titulo from './commons/titulo/Titulo'
+import ProyectoComponent from './proyectos/ProyectoComponent'
 
 function App() {
  
 
   return (
     <>
-    <MenuProyectos></MenuProyectos>
-      <ProyectoComponent title = {"Coso"}></ProyectoComponent>
-       
+    <Titulo></Titulo>
+   
+    <ProyectoComponent></ProyectoComponent>
+      
     </>
   )
 }

@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./proyectoComponent.module.css";
 
-interface ProyectoComponent {
-  title: string;
-}
+import BotonGenerico from "../commons/botones/BotonGenerico";
+import MenuProyectos from '../commons/menu/MenuProyectos';
 
-const ProyectoComponent: React.FC<ProyectoComponent> = ({ title }) => {
-  return <div className={styles.container}>
-    {title}</div>;
-    
-};
 
-export default ProyectoComponent;
+export default function ProyectoComponent() {
+  return (
+  <>
+    <BotonGenerico textoBoton = 'Prueba' ></BotonGenerico>
+    <MenuProyectos></MenuProyectos>
+  </>  
+)};
+
+
