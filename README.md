@@ -51,7 +51,7 @@ npm run preview - Previsualiza la app en producción.
 
 🎨 Material UI
 
-📦 React Router 
+📦 Redux
 
 
 ## 📌 Contribuciones
