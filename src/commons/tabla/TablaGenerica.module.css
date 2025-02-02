@@ -1,0 +1,7 @@
+.espacioTabla {
+    margin-top: 2rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+    float:inline-end
+  }
