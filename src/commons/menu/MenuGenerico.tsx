@@ -4,15 +4,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const options = [
-  'Ver',
-  'Editar',
-  'Borrar', 
-];
 
 const ITEM_HEIGHT = 48;
 
-export default function MenuProyectos() {
+export default function MenuGenerico({opciones} : {opciones:  string[];}) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -51,9 +46,9 @@ export default function MenuProyectos() {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
+        {opciones.map((opcion) => (
+          <MenuItem key={opcion} onClick={handleClose}>
+            {opcion}
           </MenuItem>
         ))}
       </Menu>
