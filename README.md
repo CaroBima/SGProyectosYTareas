@@ -35,8 +35,11 @@ Esto levantará un servidor en http://localhost:5173 (por defecto en Vite).
 
 
 ## 📜 Scripts Disponibles
+
 npm run dev - Inicia el servidor en modo desarrollo.
+
 npm run build - Genera la versión optimizada para producción.
+
 npm run preview - Previsualiza la app en producción.
 
 
