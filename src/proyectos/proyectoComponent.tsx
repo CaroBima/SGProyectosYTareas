@@ -1,14 +1,18 @@
 
 import BotonGenerico from "../commons/botones/BotonGenerico";
-import MenuGenerico from "../commons/menu/MenuGenerico";
+import TablaGenerica from "../commons/tabla/TablaGenerica";
+import style from "./ProyectoComponent.module.css";
 
 
 
 export default function ProyectoComponent() {
   return (
   <>
-    <BotonGenerico textoBoton = 'Prueba' ></BotonGenerico>
-    <MenuGenerico opciones = {['Ver', 'Editar', 'Borrar']}></MenuGenerico>
+    <div className={style.espacioBoton} >
+      <BotonGenerico textoBoton = 'Añadir Proyecto'></BotonGenerico>
+    </div>
+    <TablaGenerica></TablaGenerica>
+    
   </>  
 )};
 
