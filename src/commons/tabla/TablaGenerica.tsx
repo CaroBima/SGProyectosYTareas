@@ -1,13 +1,14 @@
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import MenuGenerico from '../menu/MenuGenerico';
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import MenuGenerico from "../menu/MenuGenerico";
 
+// Estilos de la tabla
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.primary.main,
@@ -19,61 +20,56 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
-  '&:last-child td, &:last-child th': {
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-) {
-  return { name, calories, fat, carbs, protein };
+type RowData = {
+  [key: string]: string | number;
+};
+
+interface TablaGenericaProps {
+  columns: string[];
+  rows: RowData[];
+  columnMap: { [key: string]: string };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function TablaGenerica() {
+export default function TablaGenerica({ columns, rows, columnMap}: TablaGenericaProps) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-          <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Opciones</StyledTableCell>
+            {columns.map((col) => (
+              <StyledTableCell align="center" key={col}>{col}</StyledTableCell>
+            ))}
+            <StyledTableCell align="right">Acciones</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
+        {rows.length > 0 ? (
+           rows.map((row, rowIndex) => (
+            <StyledTableRow key={rowIndex}>
+              {columns.map((col) => {
+                const key = columnMap[col]; // Obtener el nombre de la clave real
+                return <StyledTableCell key={col} align="center">{row[key]}</StyledTableCell>;
+              })}
+              <StyledTableCell align="right">
+                <MenuGenerico opciones={["Ver", "Editar", "Borrar"]} />
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-              <StyledTableCell align="right"><MenuGenerico opciones = {['Ver', 'Editar', 'Borrar']}></MenuGenerico></StyledTableCell>
-
             </StyledTableRow>
-          ))}
+          ))
+        ) : (
+            <StyledTableRow>
+              <StyledTableCell colSpan={columns.length + 1} align="center">
+                No hay datos disponibles
+              </StyledTableCell>
+            </StyledTableRow>
+          )}
         </TableBody>
       </Table>
     </TableContainer>
