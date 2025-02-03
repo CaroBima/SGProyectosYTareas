@@ -53,6 +53,8 @@ npm run preview - Previsualiza la app en producción.
 
 📦 Redux
 
+📦 React Router
+
 
 ## 📌 Contribuciones
 Si deseas contribuir, ¡siéntete libre de hacer un fork y un pull request! 😊

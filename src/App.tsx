@@ -1,19 +1,30 @@
 
 import './App.css'
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+
 import Titulo from './commons/titulo/Titulo'
-import ProyectoComponent from './proyectos/ProyectoComponent'
+import ProyectosContainer from './proyectos/ProyectosContainer'
+
 
 function App() {
- 
-
   return (
-    <>
-    <Titulo></Titulo>
-   
-    <ProyectoComponent></ProyectoComponent>
-      
-    </>
+    <Router>
+      <Principal />
+    </Router>
   )
 }
 
+function Principal() {
+  const location = useLocation();
+  const hideHeaderOnRoutes = ["/login"]; 
+
+  return (
+    <>
+      {!hideHeaderOnRoutes.includes(location.pathname) && <Titulo />}
+      <Routes>
+        <Route path="/" element={<ProyectosContainer />} />
+      </Routes>
+    </>
+  );
+}
 export default App
