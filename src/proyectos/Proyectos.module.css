@@ -5,3 +5,7 @@
   align-self: flex-end;
   float:inline-end
 }
+
+.espacioForm{
+  margin: 2rem;
+}

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 
 import Titulo from './commons/titulo/Titulo'
 import ProyectosContainer from './proyectos/ProyectosContainer'
+import AddProyecto from './proyectos/AddProyecto';
 
 
 function App() {
@@ -23,6 +24,7 @@ function Principal() {
       {!hideHeaderOnRoutes.includes(location.pathname) && <Titulo />}
       <Routes>
         <Route path="/" element={<ProyectosContainer />} />
+        <Route path="/AddProyecto" element={<AddProyecto />} />
       </Routes>
     </>
   );
